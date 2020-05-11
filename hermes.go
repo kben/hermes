@@ -7,8 +7,8 @@ import (
 	"github.com/Masterminds/sprig"
 	"github.com/imdario/mergo"
 	"github.com/jaytaylor/html2text"
-	"github.com/russross/blackfriday/v2"
 	"github.com/vanng822/go-premailer/premailer"
+	"gopkg.in/russross/blackfriday.v2"
 )
 
 // Hermes is an instance of the hermes email generator
@@ -32,6 +32,9 @@ type TextDirection string
 var templateFuncs = template.FuncMap{
 	"url": func(s string) template.URL {
 		return template.URL(s)
+	},
+	"html": func(s string) template.HTML {
+		return template.HTML(s)
 	},
 }
 

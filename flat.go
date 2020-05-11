@@ -445,7 +445,7 @@ func (dt *Flat) HTMLTemplate() string {
                       {{ end }}
 
                     <p>
-                      {{.Email.Body.Signature}},
+                      {{.Email.Body.Signature}}
                       <br />
                       {{.Hermes.Product.Name}}
                     </p>
@@ -536,6 +536,7 @@ func (dt *Flat) PlainTextTemplate() string {
       </table>
     {{ end }}
   {{ end }}
+{{ end }}
   {{ with .Email.Body.Actions }} 
     {{ range $action := . }}
       <p>
@@ -549,7 +550,6 @@ func (dt *Flat) PlainTextTemplate() string {
       </p> 
     {{ end }}
   {{ end }}
-{{ end }}
 {{ with .Email.Body.Outros }} 
   {{ range $line := . }}
     <p>{{ $line }}<p>

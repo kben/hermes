@@ -447,12 +447,11 @@ func (dt *Default) HTMLTemplate() string {
                       {{ end }}
 
                     <p>
-                      {{.Email.Body.Signature}},
+                      {{.Email.Body.Signature}}
                       <br />
                       {{.Hermes.Product.Name}}
                     </p>
 
-                    {{ if (eq .Email.Body.FreeMarkdown "") }}
                       {{ with .Email.Body.Actions }} 
                         <table class="body-sub">
                           <tbody>
@@ -469,7 +468,6 @@ func (dt *Default) HTMLTemplate() string {
                           </tbody>
                         </table>
                       {{ end }}
-                    {{ end }}
                   </td>
                 </tr>
               </table>
@@ -538,6 +536,7 @@ func (dt *Default) PlainTextTemplate() string {
       </table>
     {{ end }}
   {{ end }}
+{{ end }}
   {{ with .Email.Body.Actions }} 
     {{ range $action := . }}
       <p>
@@ -551,7 +550,6 @@ func (dt *Default) PlainTextTemplate() string {
       </p> 
     {{ end }}
   {{ end }}
-{{ end }}
 {{ with .Email.Body.Outros }} 
   {{ range $line := . }}
     <p>{{ $line }}<p>
